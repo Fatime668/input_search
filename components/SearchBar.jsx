@@ -16,7 +16,7 @@ const SearchBar = ({ appoitments, setApooitments }) => {
       })
       .catch((err) => console.log(err));
   }, []);
-  let search = () => {
+  let search = (value) => {
     let filteredAppoitment = originalData.filter((q) =>
       q.title.toLowerCase().includes(value.toLowerCase())
     );
@@ -26,7 +26,7 @@ const SearchBar = ({ appoitments, setApooitments }) => {
   return (
     <View style={styles.searchbar}>
       <View style={styles.search}>
-        <TextInput onChangeText={() => search()} style={styles.searching} />
+        <TextInput onChangeText={search} style={styles.searching} />
       </View>
     </View>
   );
